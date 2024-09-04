@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="form">
+    <div class="formimage">
+        <span> DO NOT SPREAD HATE USING THE SAME WORDS THAT CAN TELL TALES</span>
+        <span>NE RÉPANDEZ PAS LA HAINE EN UTILISANT LES MÊMES MOTS QUI PEUVENT RACONTER DES HISTOIRES</span>
+        <span>لا تنشر الكراهية باستخدام نفس الكلمات التي يمكن أن تحكي الحكاياتلا تنشر الكراهية باستخدام نفس الكلمات التي
+            يمكن أن تحكي الحكايات</span>
+        <span>物語を語るのと同じ言葉を使って憎しみを広めないでください</span>
+        <span>USIENEZE CHUKI KWA KUTUMIA MANENO YALE YALE YANAYOWEZA KUSIMULIA HADITHI</span>
+        <span>НЕ РАСПРОСТРАНЯЙТЕ НЕНАВИСТЬ, ИСПОЛЬЗУЯ ТЕ ЖЕ СЛОВА, КОТОРЫЕ МОГУТ РАССКАЗАТЬ СКАЗКИ.</span>
+    </div>
+    <div class="form-container">
+        <form id="login-form" method="POST" class="form-content">
+            {% csrf_token %}
+            <h2>Log In</h2>
+            <input type="text" name="username" id="login-username" placeholder="Username" required>
+            <input type="password" name="password" id="login-password" placeholder="Password" required>
+            <input type="submit" value="Login">
+            <p>Don't have an account? <a href="signupform.html" id="switch-to-signup">Sign Up</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

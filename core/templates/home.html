@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<header>
+    <div class="header-section">
+        <h1 class="header-title">Kiswahili Hate Speech CLassification</h1>
+        <p class="header-subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil possimus sed dicta
+            totam sequi corrupti cumque
+            itaque nemo quod necessitatibus, consequatur rerum magnam omnis asperiores quaerat vel earum error
+            molestiae.
+        </p>
+
+    </div>
+</header>
+<main>
+    <form action="{% url 'home' %}" method="POST" id="myForm">
+        {% csrf_token %}
+        <textarea type="text" name="text" id="speech-box" class="speech-box" placeholder="Enter your Swahili text..."> {{text}}
+        </textarea>
+
+    </form>
+    <button class="blue" id="predict">Predict</button>
+    <!-- <button>Analyze</button> -->
+    <div class="results">
+        <div class="prediction">
+            <span class="title">Prediction</span>
+            <span class="verdict">{{ predictions }}</span>
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2024 kiswahili kitukuzwe 🧐🤓. All Rights Reserved.</p>
+</footer>
+{% endblock %}

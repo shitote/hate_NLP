@@ -1,0 +1,233 @@
+:root {
+    /* colours */
+    --green: linear-gradient(to right bottom, #0a7a00, #0d9200, #0fac00, #11c500, #13e000);
+    ;
+    --red: linear-gradient(to right bottom, #7a0000, #920003, #ac0004, #c60002, #e00000);
+    --blue: linear-gradient(to right bottom, #0c1232, #0e173e, #0f1c4a, #102156, #112663);
+    --paper: #F5F2E8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background-color: #fff;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+header {
+    background: var(--light-gray);
+    color: var(--light-blue);
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid #dddfe2;
+}
+
+.header-title {
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.header-subtext {
+    font-size: 1em;
+    line-height: 1.4;
+    color: #666;
+    /* Softer color for subtext */
+    transition: color 0.2s ease-in-out;
+}
+
+.header-title:hover,
+.header-subtext:hover {
+    color: var(--blue);
+}
+
+footer {
+    background: var(--blue);
+    color: rgb(223, 193, 193);
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+}
+
+.chart {
+    display: flex;
+}
+
+/* styles.css */
+.speech-box {
+    margin: 20px 0;
+    background: var(--paper);
+    width: 80vw;
+    height: 20vh;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #dfdcdc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.speech-box:focus {
+    height: 30vh;
+    border-color: var(--blue);
+    box-shadow: 0 6px 12px rgba(248, 246, 246, 0.2);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.speech-box::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+.speech-box:hover {
+    box-shadow: 0 6px 12px rgba(255, 249, 249, 0.15);
+    transform: translateY(-1px);
+}
+
+.speech-box {
+    background: linear-gradient(to right, #f5f5f5, #fafafa);
+    border-left: 6px solid var(--blue);
+}
+
+
+
+/* .speech-box:hover {
+    width: 80vw;
+    height:20vh;
+    outline: none;
+}
+
+.speech-box:focus:hover {
+    width: 80vw;
+    height:70vh;
+    outline: none;
+} */
+
+button {
+    /* height: 50px;
+    width: 200px;
+    border: none;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px; */
+    height: 50px;
+    width: 200px;
+    border: none;
+    border-radius: 50px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 1em;
+    transition: background 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(to right bottom, #0e173e, #112663);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+    background: var(--paper);
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 0;
+}
+
+.prediction {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: var(--paper);
+    width: 300px;
+    border: solid 3px #000;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px; */
+    background: var(--paper);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.prediction-card .title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.prediction-card .verdict {
+    font-size: 1.5em;
+    color: #ff0000;
+}
+
+.results {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+@media (max-width:768px) {
+    .results {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.green {
+    background: var(--green);
+    color: #fff;
+}
+
+.blue {
+    background: var(--blue);
+    color: #fff;
+}
+
+.red {
+    background: var(--red);
+    color: #fff;
+}
+
+/* .speech-box:focus {
+    position: relative;
+    width: 80vw;
+    height:70vh;
+    outline: none;
+} */
+
+/* textarea {
+    width: 300px;
+    min-height: 50px;
+    overflow: hidden;
+    resize: none;
+} */

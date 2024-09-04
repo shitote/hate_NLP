@@ -1,0 +1,72 @@
+/* navbar.css */
+.navbar {
+    /* position: fixed;
+    top: 0; */
+    background-color: #003;
+    overflow: hidden;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-link{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    max-width: 50vw;
+}
+
+.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    max-width: 50vw;
+}
+
+.navbar-item {
+    flex: 1;
+    text-align: center;
+}
+
+.navbar-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ .button a:hover {
+    display: block;
+    color: #000;
+    /* background-color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; */
+} 
+
+.button{
+    height: 75%;
+    width: 10vw;
+    border: 3px solid #fff;
+}
+
+.button:hover{
+    color: black;
+    background: #fff;
+}
+
+.btn-left{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.btn-right{
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}

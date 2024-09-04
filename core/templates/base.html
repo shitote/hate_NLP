@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuki-Analyzer</title>
+    <link rel="stylesheet" href="{% static 'css/chuki.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/table.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <script src="{% static 'js/loadNavbar.js' %}" defer></script>
+    <script src="{% static 'js/chart.js' %}" defer></script>
+    <script src="{% static 'js/speechbox.js' %}" defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script> -->
+</head>
+
+<body>
+
+    {% if messages %}
+    {% endif %}
+    {% block content %}
+
+    {% endblock %}
+    <script src="{% static 'js/table.js' %}"></script>
+
+</body>
+
+</html>

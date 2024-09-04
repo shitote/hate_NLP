@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .chart-container canvas {
+            height: 400px;
+            width: 100%;
+        }
+
+        .chart-wrapper {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .chart-box {
+            width: 45%;
+        }
+
+        span {
+            content: "\2190";
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><span>&#8592;</span> Home</a>
+    </nav>
+
+    <div class="chart-container">
+        <h1 class="mt-4">Prediction Dashboard</h1>
+
+        <div class="chart-wrapper">
+            <!-- Pie Chart -->
+            <div class="chart-box">
+                <h3>Prediction Distribution (Pie Chart)</h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+
+            <!-- Doughnut Chart -->
+            <div class="chart-box">
+                <h3>Prediction Distribution (Doughnut Chart)</h3>
+                <canvas id="doughnutChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data passed from Django view
+        const chartData = JSON.parse('{{ chart_data|escapejs }}');
+
+        // Pie Chart
+        const ctxPie = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['Hate Predictions', 'Non-Hate Predictions'],
+                datasets: [{
+                    data: [
+                        chartData.predictions.filter(p => p === 1).length,
+                        chartData.predictions.filter(p => p === 0).length
+                    ],
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)']
+                }]
+            }
+        });
+
+        // Doughnut Chart
+        const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+        new Chart(ctxDoughnut, {
+            type: 'doughnut',
+            data: {
+                labels: ['Hate Predictions', 'Non-Hate Predictions'],
+                datasets: [{
+                    data: [
+                        chartData.predictions.filter(p => p === 1).length,
+                        chartData.predictions.filter(p => p === 0).length
+                    ],
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)']
+                }]
+            }
+        });
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

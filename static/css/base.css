@@ -1,0 +1,7 @@
+:root{
+    /* colours */
+    --green: linear-gradient(to right bottom, #0a7a00, #0d9200, #0fac00, #11c500, #13e000);;
+    --red: linear-gradient(to right bottom, #7a0000, #920003, #ac0004, #c60002, #e00000);
+    --blue: linear-gradient(to right bottom, #0c1232, #0e173e, #0f1c4a, #102156, #112663);
+    --paper: #F5F2E8;
+}

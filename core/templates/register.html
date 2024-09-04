@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Login Form</title>
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <script src="{% static 'js/loadNavbar.js' %}"></script>
+    <script src="{% static 'js/form.js' %}" defer></script>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="form">
+        <div class="formimage">
+            <span> DO NOT SPREAD HATE USING THE SAME WORDS THAT CAN TELL TALES</span>
+            <span>NE RÉPANDEZ PAS LA HAINE EN UTILISANT LES MÊMES MOTS QUI PEUVENT RACONTER DES HISTOIRES</span>
+            <span>لا تنشر الكراهية باستخدام نفس الكلمات التي يمكن أن تحكي الحكاياتلا تنشر الكراهية باستخدام نفس الكلمات
+                التي يمكن أن تحكي الحكايات</span>
+            <span>物語を語るのと同じ言葉を使って憎しみを広めないでください</span>
+            <span>USIENEZE CHUKI KWA KUTUMIA MANENO YALE YALE YANAYOWEZA KUSIMULIA HADITHI</span>
+            <span>НЕ РАСПРОСТРАНЯЙТЕ НЕНАВИСТЬ, ИСПОЛЬЗУЯ ТЕ ЖЕ СЛОВА, КОТОРЫЕ МОГУТ РАССКАЗАТЬ СКАЗКИ.</span>
+        </div>
+        <div class="form-container">
+            <form id="signup-form" class="form-content" method="POST" action="">
+                {% csrf_token %}
+                <h2>Sign Up</h2>
+                {{ form.first_name }}
+                {{ form.last_name }}
+                {{ form.username }}
+                {{ form.email }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+                <input type="submit" value="Sign Up">
+                <p>Already have an account? <a href="{% url 'login' %}" id="switch-to-login">Log In</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

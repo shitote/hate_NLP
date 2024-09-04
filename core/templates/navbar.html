@@ -1,0 +1,23 @@
+<nav class="navbar">
+    <ul class="navbar-link">
+        <li class="navbar-item link"><a href="{% url 'home' %}">Home</a></li>
+        {% if user.is_authenticated and user.is_superuser %}
+        <li class="navbar-item link"><a href="{% url 'informations' %}">data</a></li>
+        <li class="navbar-item link"><a href="{% url 'dashboard' %}">dashboad</a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <li class="navbar-item link"><a href="{% url 'information' %}">History</a></li>
+        {% endif %}
+    </ul>
+    {% if user.is_authenticated %}
+    <ul class="navbar-list">
+        <li class="navbar-item button btn-left"><a href="{% url 'update_user' %}">{{user.username}}</a></li>
+        <li class="navbar-item button btn-right"><a href="{% url 'logout' %}">Logout</a></li>`
+    </ul>
+    {% else %}
+    <ul class="navbar-list">
+        <li class="navbar-item button btn-left"><a href="{% url 'login' %}">Login</a></li>
+        <li class="navbar-item button btn-right"><a href="{% url 'register' %}">Sign up</a></li>`
+    </ul>
+    {% endif %}
+</nav>
