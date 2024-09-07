@@ -1,98 +1,107 @@
-:root {
-    /* colours */
-    --green: linear-gradient(to right bottom, #0a7a00, #0d9200, #0fac00, #11c500, #13e000);
-    ;
-    --red: linear-gradient(to right bottom, #7a0000, #920003, #ac0004, #c60002, #e00000);
-    --blue: linear-gradient(to right bottom, #0c1232, #0e173e, #0f1c4a, #102156, #112663);
-    --paper: #F5F2E8;
-}
-
-/* styles.css */
+/* General body and layout */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #fff;
 }
 
 .form {
-    height: 80vh;
-    max-width: 70vw;
-    display: flex;
-    justify-content: space-evenly;
-    border: solid 3px #000;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+    margin-top: 13vh;
 }
 
-.formimage {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background: var(--paper);
-    z-index: -1;
-}
-
+/* Container to hold the form */
 .form-container {
-    background: white;
-    /* padding: 20px; */
-    /* border-radius: 5px; */
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    min-width: 50%;
-    /* z-index: -1; */
+    background-color: #fff;
+    width: 40vw;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .form-content {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    /* Spacing between form elements */
 }
 
-.form-content input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 3px;
-}
-
-.form-content .button {
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: var(--blue);
-    color: white;
-    cursor: pointer;
-}
-
-.form-content p {
+/* Targeting only h2 inside form-container */
+.form-container h2 {
     text-align: center;
+    color: #2e2e3d;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-.hidden {
-    display: none;
+/* Targeting only input elements inside form-container */
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"],
+.form-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
-input[type='submit'] {
-    background: var(--blue);
-    color: #fff;
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus {
+    border-color: #003;
+    outline: none;
+    box-shadow: 0px 0px 4px rgba(0, 0, 51, 0.3);
 }
 
-
-input.invalid {
-    border: 2px solid red;
-    /* Red border for invalid input */
+/* Submit button styling within the form */
+.form-container input[type="submit"] {
+    background-color: #003;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-input.valid {
-    border: 2px solid green;
-    /* Green border for valid input */
+.form-container input[type="submit"]:hover {
+    background-color: #0055cc;
+}
+
+/* Text below the form (e.g., sign-up link) */
+.form-container p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.form-container p a {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.form-container p a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 400px) {
+    .form-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="password"],
+    .form-container input[type="email"],
+    .form-container input[type="submit"] {
+        font-size: 12px;
+        padding: 8px;
+    }
 }

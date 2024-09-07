@@ -2,41 +2,25 @@ const ctx = document.getElementById('myChart');
 const nonHateProb = parseFloat(ctx.getAttribute('data-nonhate'));
 const hateProb = parseFloat(ctx.getAttribute('data-hate'));
 
-// Data for the chart
-const data = {
-  labels: ['Non-hate', 'Hate'],
-  datasets: [{
-    label: 'Hate Speech Analysis',
-    data: [nonHateProb, hateProb],
-    backgroundColor: ['#050', '#a00'],
-    hoverOffset: 4
-  }]
-};
 
-// Create the chart
-new Chart(ctx, {
-  type: 'doughnut', // or 'pie', 'bar', etc.
-  data: data,
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      tooltip: {
-        callbacks: {
-          label: function (context) {
-            let label = context.label || '';
-            if (label) {
-              label += ': ';
-            }
-            if (context.raw !== null) {
-              label += context.raw.toFixed(2); // Rounds the value to 2 decimal places
-            }
-            return label;
-          }
-        }
-      }
-    }
-  }
+
+document.querySelector('textarea').addEventListener('focus', function () {
+  // Ensure no dynamic resizing or unwanted styling
+  this.style.height = '200px'; // Keep the height fixed
 });
+
+
+function updatePrediction(prediction) {
+  const predictionBox = document.querySelector('.prediction');
+  const verdict = document.querySelector('.verdict');
+
+  verdict.textContent = prediction;
+
+  // Add updated class for a brief animation effect
+  predictionBox.classList.add('updated');
+
+  // Remove the effect after a short delay
+  setTimeout(() => {
+    predictionBox.classList.remove('updated');
+  }, 1000);
+}

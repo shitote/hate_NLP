@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'navbar.html' %}
 <header>
     <div class="header-section">
         <h1 class="header-title">Kiswahili Hate Speech CLassification</h1>
@@ -25,11 +24,9 @@
     <div class="results">
         <div class="prediction">
             <span class="title">Prediction</span>
+            <br>
             <span class="verdict">{{ predictions }}</span>
         </div>
     </div>
 </main>
-<footer>
-    <p>&copy; 2024 kiswahili kitukuzwe 🧐🤓. All Rights Reserved.</p>
-</footer>
 {% endblock %}

@@ -18,12 +18,13 @@
 </head>
 
 <body>
-
+    {% include 'navbar.html' %}
     {% if messages %}
     {% endif %}
     {% block content %}
 
     {% endblock %}
+    {% include 'footer.html' %}
     <script src="{% static 'js/table.js' %}"></script>
 
 </body>

@@ -16,7 +16,7 @@ from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm
 
 
 def homePage(request):
-    model_path = find('models/model_svm.pkl')
+    model_path = find('models/model_svm1.pkl')
     if request.method == 'POST':
         text = request.POST.get('text', '')
         if len(text) < 1:

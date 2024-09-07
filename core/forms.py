@@ -44,13 +44,46 @@ class UpdateUserForm(UserChangeForm):
         self.fields['username'].label = ''
 
 
+# class SignUpForm(UserCreationForm):
+#     email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
+#     first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}))
+#     last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}))
+#     username = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'user name'}))
+#     password1 = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'passwrd'}))
+#     password2 = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'reenter your password'}))
+
+#     class Meta:
+#         model = User
+#         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
-    first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}))
-    last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}))
-    username = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'user name'}))
-    password1 = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'passwrd'}))
-    password2 = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'reenter your password'}))
+    email = forms.EmailField(
+        label="",
+        widget=forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email Address'})
+    )
+    first_name = forms.CharField(
+        label="",
+        max_length=100,
+        widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'})
+    )
+    last_name = forms.CharField(
+        label="",
+        max_length=100,
+        widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'})
+    )
+    username = forms.CharField(
+        label="",
+        max_length=100,
+        widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Username'})
+    )
+    password1 = forms.CharField(
+        label="",
+        widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Password'})
+    )
+    password2 = forms.CharField(
+        label="",
+        widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Re-enter Password'})
+    )
 
     class Meta:
         model = User

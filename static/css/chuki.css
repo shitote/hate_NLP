@@ -57,12 +57,14 @@ header {
 }
 
 footer {
-    background: var(--blue);
-    color: rgb(223, 193, 193);
-    padding: 10px 0;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
     text-align: center;
-    width: 100%;
+    position: fixed;
     bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
 }
 
 .chart {
@@ -71,22 +73,24 @@ footer {
 
 /* styles.css */
 .speech-box {
-    margin: 20px 0;
     background: var(--paper);
+    margin: 20px auto;
     width: 80vw;
-    height: 20vh;
-    padding: 20px;
+    height: 100px;
+    padding: 10px;
     border-radius: 10px;
     border: 2px solid #dfdcdc;
+    border: 2px solid #ccc;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    resize: none;
 }
 
 .speech-box:focus {
-    height: 30vh;
-    border-color: var(--blue);
-    box-shadow: 0 6px 12px rgba(248, 246, 246, 0.2);
     outline: none;
+    height: 200px;
+    border: 1px solid #aaa;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
 
@@ -105,29 +109,7 @@ footer {
     border-left: 6px solid var(--blue);
 }
 
-
-
-/* .speech-box:hover {
-    width: 80vw;
-    height:20vh;
-    outline: none;
-}
-
-.speech-box:focus:hover {
-    width: 80vw;
-    height:70vh;
-    outline: none;
-} */
-
 button {
-    /* height: 50px;
-    width: 200px;
-    border: none;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px; */
     height: 50px;
     width: 200px;
     border: none;
@@ -155,37 +137,36 @@ button:hover {
 }
 
 .prediction {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background: var(--paper);
-    width: 300px;
-    border: solid 3px #000;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px; */
-    background: var(--paper);
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 20px;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    width: 60%;
+    max-width: 600px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    font-size: 1.2rem;
 }
 
 .prediction-card .title {
+    font-size: 2rem;
     font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
 .prediction-card .verdict {
-    font-size: 1.5em;
-    color: #ff0000;
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #27ae60;
+    transition: color 0.3s ease-in-out;
+}
+
+.prediction.updated .verdict {
+    color: #c0392b;
+    /* Red for offensive content */
 }
 
 .results {
@@ -217,17 +198,3 @@ button:hover {
     background: var(--red);
     color: #fff;
 }
-
-/* .speech-box:focus {
-    position: relative;
-    width: 80vw;
-    height:70vh;
-    outline: none;
-} */
-
-/* textarea {
-    width: 300px;
-    min-height: 50px;
-    overflow: hidden;
-    resize: none;
-} */
